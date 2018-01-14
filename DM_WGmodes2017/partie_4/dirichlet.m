@@ -9,6 +9,7 @@ function [g] = dirichlet(g)
 %Les noeuds du bord sont ceux ou :
 %    ix = 1 ou Nx
 %    iy = 1 ou Ny
+ld = [];
 
 for ix = [1,g.Nx]
     for iy = 1:g.Ny
