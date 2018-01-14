@@ -8,18 +8,17 @@ Nx = g.Nx;
 Ny = g.Ny;
 N=Nx*Ny;
 
-alpha=-2*(g.lambda/(2*pi))^2*(1/g.dx^2 + 1/g.dy^2)
-beta=(g.lambda/(2*pi))^2*1/g.dx^2
-gamma=(g.lambda/(2*pi))^2*1/g.dy^2
+alpha=-2*(g.lambda/(2*pi))^2*((1/g.dx)^2 + (1/g.dy)^2);
+beta=(g.lambda/(2*pi))^2*(1/g.dx)^2;
+gamma=(g.lambda/(2*pi))^2*(1/g.dy)^2;
 
-A = sparse(diag(alpha*ones(N,1)) + diag(beta*ones(N-1,1),1) + diag(beta*ones(N-1,1),-1)+ diag(gamma*ones(N-Nx,1),Nx) + diag(gamma*ones(N-Nx,1),-Nx));
+A = spdiags([gamma*ones(N,1) beta*ones(N,1) alpha*ones(N,1) beta*ones(N,1) gamma*ones(N,1)],[-Nx -1 0 1 Nx],N,N);
 
-for ix = 1:Nx
-    for iy = 1:Ny
-        indice = (iy-1)*Nx + ix;
-        A(indice,indice) = A(indice,indice) + g.indice(ix,iy)^2;
-    end
+diagonale = [];
+for j = 1:Ny
+    diagonale = [diagonale (g.indice(:,j).^2)'];
 end
+A = A + spdiags(diagonale',0,N,N);
 
 for ind = 1:N
     if any(ind==g.ld)

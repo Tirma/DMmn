@@ -16,15 +16,15 @@ clc
 clear all
 close all
 
-h=0.1;
-g=uniform_grid(-5.0, 5.0, -3.0, 3.0, h, h);
+h=2;
+g=uniform_grid(-5.0, 5.0, -5.0, 5.0, h, h);
 g.lambda=1.;
 
 % coordonnees des sommets du polygone
 % decrivant une portion du guide
 region = [
-       -2  -1;
-       +2  -1;
+       -3  -2.5;
+       +2  -2.5;
        +1  +1;
        -1  +1
        ];
