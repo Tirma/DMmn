@@ -42,7 +42,7 @@ for ind = 1:N
        A(ind,ind+Nx) = (g.lambda/(2*pi))^2 * Haut/hy^2;
        
        Bas = 1;
-       A(ind,ind-Nx) = (g.lambda/(2*pi))^2 * Haut/hy^2;
+       A(ind,ind-Nx) = (g.lambda/(2*pi))^2 * Bas/hy^2;
        
    end
 end

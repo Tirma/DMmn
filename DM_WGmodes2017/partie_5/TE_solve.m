@@ -1,4 +1,4 @@
-function [g]=solve(g,n)
+function [g]=TE_solve(g,n)
 
 N=g.Nx*g.Ny;
 disp("runing Dirichlet")

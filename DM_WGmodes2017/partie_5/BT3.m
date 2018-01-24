@@ -23,7 +23,7 @@ hx=0.0976;
 hy=0.10;
 
 %g=uniform_grid(-1.0-h/2:h:3.0+h/2, -1.0-h/2:h:3.0+h/2);
-g=uniform_grid(-6.5, 6.5, -11.5, 3.5, hx, hy);
+g=uniform_grid(-6.5, 6.5, -11.33, 3.33, hx, hy);
 g.lambda=1.55;
 g.hx = hx;
 g.hy = hy;
